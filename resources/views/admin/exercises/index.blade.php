@@ -15,8 +15,9 @@
             <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Nome originale</th>
+                  <th scope="col">Nome esercizio</th>
+                  <th scope="col">Nome repo</th>
+                  <th scope="col">Esercizio completato</th>
                   <th scope="col">Bonus</th>
                   <th scope="col">Data</th>
                   <th scope="col"></th>
@@ -27,11 +28,11 @@
                 @foreach ( $exercises as $exercise )
                     <tr>
                         <th scope="row">{{ $exercise->id}}</th>
-                        <td>{{ $exercise->title }}</td>
-                        <td>{{ $exercise->original_title }}</td>
-                        <td>{{ $exercise->nationality }}</td>
+                        <td>{{ $exercise->name }}</td>
+                        <td>{{ $exercise->repo_name }}</td>
+                        <td>{{ $exercise->exercise_completed }}</td>
+                        <td>{{ $exercise->exercise_bonus }}</td>
                         <td>{{ $exercise->date }}</td>
-                        <td>{{ $exercise->vote }}</td>
                         <td class="text-center">
                             <a href="{{ route("admin.exercises.show") }}" class="btn btn-primary">Mostra</a>
                             {{-- <a href="{{ route("movies.edit", $movie->id) }}" class="btn btn-success">Modifica</a>
