@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ExerciseController as AdminExerciseController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,4 @@ Route::get('/', [PageController::class, "home"])->name("home");
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin/exercises', [AdminExerciseController::class, 'index'])->name('admin.exercises.index');
