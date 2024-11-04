@@ -21,4 +21,8 @@ Route::get('/', [PageController::class, "home"])->name("home");
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/admin/exercises', [AdminExerciseController::class, 'index'])->name('admin.exercises.index');
+
+Route::middleware("auth")->prefix("/admin")->name("admin.")->group(function() {
+    Route::get('/exercises', [AdminExerciseController::class, 'index'])->name('exercises.index');
+});
+
