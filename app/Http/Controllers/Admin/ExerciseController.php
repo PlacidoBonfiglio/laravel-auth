@@ -43,8 +43,8 @@ class ExerciseController extends Controller
      */
     public function show(string $id)
     {
-        $exercises = Exercise::findOrFail($id);
-        return view ("admin.exercises.show", compact("exercise"));
+        $exercise = Exercise::findOrFail($id);
+        return view("admin.exercises.show", compact("exercise"));
     }
 
     /**
