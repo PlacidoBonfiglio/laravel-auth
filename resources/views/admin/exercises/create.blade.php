@@ -2,7 +2,7 @@
 
 @section("page-title", "Laravel Auth")
 
-@section("main-content")
+@section("content")
     <section class="container">
 
         <h2 class="text-center mb-3">Aggiungi i dati di un nuovo esercizio</h2>
