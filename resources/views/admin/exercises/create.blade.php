@@ -28,7 +28,7 @@
 
             <div class="col-6 m-3">
                 <label for="exercise-completed">L'esercizio è stato completato?</label>
-                <input class="form-control" type="text" value="{{ old('exercise_completed') }}" id="exercise-completed" name="exercise_completed">
+                <input class="form-control" type="number" min="0" max="1" value="{{ old('exercise_completed') }}" id="exercise-completed" name="exercise_completed">
                 @error("exercise_completed")
                     <div class="alert alert-warning mt-2">Scrivi 1 se l'esercizio è stato completato, 0 se è incompleto.</div>
                 @enderror
@@ -36,7 +36,7 @@
 
             <div class="col-6 m-3 mb-4">
                 <label for="exercise-bonus">E' stato svolto il bonus?</label>
-                <input class="form-control" type="text" value="{{ old('exercise_bonus') }}" id="exercise-bonus" name="exercise_bonus">
+                <input class="form-control" type="number" min="0" max="1" value="{{ old('exercise_bonus') }}" id="exercise-bonus" name="exercise_bonus">
                 @error("exercise-bonus")
                     <div class="alert alert-warning mt-2">Scrivi 1 se il bonus è stato fatto, 0 se è se non lo è.</div>
                 @enderror

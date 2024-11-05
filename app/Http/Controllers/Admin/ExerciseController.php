@@ -33,19 +33,19 @@ class ExerciseController extends Controller
         $exerciseData = $request->validate([
             "exercise_name" => ["required", "string", "min:2", "max:255"],
             "repo_name" => ["required", "string", "min:2", "max:255"],
-            "exercise_completed" => ["required", "boolean"],
-            "exercise_comus" => ["required", "boolean"],
+            "exercise_completed" => ["required", "boolean", "numeric"],
+            "exercise_bonus" => ["required", "boolean", "numeric"],
             "date" => ["required", "date"],
         ]);
 
         // $exerciseData = $request->all();
 
         $exercise = new Exercise();
-        $exercise->title = $exerciseData["exercise_name"];
-        $exercise->original_title = $exerciseData["repo_name"];
-        $exercise->nationality = $exerciseData["exercise_completes"];
-        $exercise->date = $exerciseData["exercise_bonus"];
-        $exercise->vote = $exerciseData["date"];
+        $exercise->exercise_name = $exerciseData["exercise_name"];
+        $exercise->repo_name = $exerciseData["repo_name"];
+        $exercise->exercise_completed = $exerciseData["exercise_completed"];
+        $exercise->exercise_bonus = $exerciseData["exercise_bonus"];
+        $exercise->date = $exerciseData["date"];
         $exercise->save();
 
         // $exercise = Exercise::create($exerciseData);
@@ -78,8 +78,8 @@ class ExerciseController extends Controller
         $exerciseData = $request->validate([
             "exercise_name" => ["required", "string", "min:2", "max:255"],
             "repo_name" => ["required", "string", "min:2", "max:255"],
-            "exercise_completed" => ["required", "boolean"],
-            "exercise_comus" => ["required", "boolean"],
+            "exercise_completed" => ["required", "boolean", "numeric"],
+            "exercise_comus" => ["required", "boolean", "numeric"],
             "date" => ["required", "date"],
         ]);
 
