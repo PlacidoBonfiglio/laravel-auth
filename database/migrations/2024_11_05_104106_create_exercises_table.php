@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('exercises', function (Blueprint $table) {
             $table->id();
+            $table->string("exercise_name", 255);
+            $table->string("repo_name", 255);
+            $table->boolean("exercise_completed")->default(false);
+            $table->boolean("exercise_bonus")->default(false);
+            $table->date("date");
             $table->timestamps();
         });
     }

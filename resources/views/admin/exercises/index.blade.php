@@ -27,8 +27,8 @@
 
                 @foreach ( $exercises as $exercise )
                     <tr>
-                        <th scope="row">{{ $exercise->id}}</th>
-                        <td>{{ $exercise->name }}</td>
+                        <th scope="row">{{ $exercise->id }}</th>
+                        <td>{{ $exercise->exercise_name }}</td>
                         <td>{{ $exercise->repo_name }}</td>
                         <td>{{ $exercise->exercise_completed }}</td>
                         <td>{{ $exercise->exercise_bonus }}</td>
