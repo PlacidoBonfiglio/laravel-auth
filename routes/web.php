@@ -24,8 +24,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware("auth")->prefix("/admin")->name("admin.")->group(function() {
     Route::get('/exercises', [AdminExerciseController::class, 'index'])->name('exercises.index');
+    Route::post('/exercises', [AdminExerciseController::class, 'store'])->name('exercises.store');
     Route::get('/exercises/create', [AdminExerciseController::class, 'create'])->name('exercises.create');
     Route::get('/exercises/{id}', [AdminExerciseController::class, 'show'])->name('exercises.show');
-    Route::post('/exercises', [AdminExerciseController::class, 'store'])->name('exercises.store');
 });
 
