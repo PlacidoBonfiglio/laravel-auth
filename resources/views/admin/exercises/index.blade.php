@@ -36,13 +36,13 @@
                         <td class="text-center">
                             <a href="{{ route("admin.exercises.show", $exercise->id ) }}" class="btn btn-primary">Mostra</a>
 
-                            {{-- <a href="{{ route("admin.exercises.edit", $exercise->id) }}" class="btn btn-success">Modifica</a>
+                            <a href="{{ route("admin.exercises.edit", $exercise->id) }}" class="btn btn-success">Modifica</a>
 
                             <form action="{{ route("admin.exercises.delete", $exercise->id) }}" method="POST" class="d-inline env-destroyer" custom-data-name="{{ $exercise->exercise_name }}">
                                 @method("DELETE")
                                 @csrf
                                 <button href="/delete" type="submit" class="btn btn-danger">Rimuovi</button>
-                            </form> --}}
+                            </form>
                         </td>
                     </tr>
                 @endforeach
