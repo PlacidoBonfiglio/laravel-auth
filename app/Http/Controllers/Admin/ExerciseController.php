@@ -30,11 +30,25 @@ class ExerciseController extends Controller
      */
     public function store(Request $request)
     {
-        $exerciseData = $request->validated();
-        $exerciseData = $request->all();
+        $exerciseData = $request->validate([
+            "exercise_name" => ["required", "string", "min:2", "max:255"],
+            "repo_name" => ["required", "string", "min:2", "max:255"],
+            "exercise_completed" => ["required", "boolean"],
+            "exercise_comus" => ["required", "boolean"],
+            "date" => ["required", "date"],
+        ]);
+
+        // $exerciseData = $request->all();
 
         $exercise = new Exercise();
-        $exercise = Exercise::create($exerciseData);
+        $exercise->title = $exerciseData["exercise_name"];
+        $exercise->original_title = $exerciseData["repo_name"];
+        $exercise->nationality = $exerciseData["exercise_completes"];
+        $exercise->date = $exerciseData["exercise_bonus"];
+        $exercise->vote = $exerciseData["date"];
+        $exercise->save();
+
+        // $exercise = Exercise::create($exerciseData);
         return redirect()->route("admin.exercises.index");
     }
 
@@ -61,7 +75,23 @@ class ExerciseController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $exerciseData = $request->validate([
+            "exercise_name" => ["required", "string", "min:2", "max:255"],
+            "repo_name" => ["required", "string", "min:2", "max:255"],
+            "exercise_completed" => ["required", "boolean"],
+            "exercise_comus" => ["required", "boolean"],
+            "date" => ["required", "date"],
+        ]);
+
+        $exercise = Exercise::findOrFail($id);
+        $exercise->title = $exerciseData["exercise_name"];
+        $exercise->original_title = $exerciseData["repo_name"];
+        $exercise->nationality = $exerciseData["exercise_completes"];
+        $exercise->date = $exerciseData["exercise_bonus"];
+        $exercise->vote = $exerciseData["date"];
+        $exercise->update();
+
+        return redirect()->route("admin.exercises.index");
     }
 
     /**
@@ -69,6 +99,9 @@ class ExerciseController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $exercise = Exercise::findOrFail($id);
+
+        $exercise->delete();
+        return redirect()->route("admin.exercises.index");
     }
 }
