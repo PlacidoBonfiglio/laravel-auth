@@ -1,6 +1,6 @@
 @extends("layouts.app")
 
-@section("page-title", "Laravel Comics Index")
+@section("page-title", "Laravel Auth")
 
 @section("content")
     <section class="container">
@@ -34,7 +34,10 @@
                         <td>{{ $exercise->exercise_bonus }}</td>
                         <td>{{ $exercise->date }}</td>
                         <td class="text-center">
-                            <a href="{{ route("admin.exercises.show") }}" class="btn btn-primary">Mostra</a>
+                            <a href="{{ route("admin.exercises.show", $exercise->id ) }}" class="btn btn-primary">Mostra</a>
+                            {{-- {{ route("admin.exercises.show") }} --}}
+
+
                             {{-- <a href="{{ route("movies.edit", $movie->id) }}" class="btn btn-success">Modifica</a>
 
                             <form action="{{ route("movies.delete", $movie->id) }}" method="POST" class="d-inline env-destroyer" custom-data-name="{{ $movie->title }}">

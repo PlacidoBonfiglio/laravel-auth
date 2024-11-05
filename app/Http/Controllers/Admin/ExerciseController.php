@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Exercise;
 use Illuminate\Http\Request;
 
 class ExerciseController extends Controller
@@ -12,7 +13,7 @@ class ExerciseController extends Controller
      */
     public function index()
     {
-        $exercises = [];
+        $exercises = Exercise::all();
         return view("admin.exercises.index", compact("exercises"));
     }
 
@@ -29,7 +30,12 @@ class ExerciseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $exerciseData = $request->validated();
+        $exerciseData = $request->all();
+
+        $exercise = new Exercise();
+        $exercise = Exercise::create($exerciseData);
+        return redirect()->route("admin.exercises.index");
     }
 
     /**
@@ -37,7 +43,8 @@ class ExerciseController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $exercises = Exercise::findOrFail($id);
+        return view ("admin.exercises.show", compact("exercise"));
     }
 
     /**
@@ -45,7 +52,8 @@ class ExerciseController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $exercise = Exercise::findOrFail($id);
+        return view("admin.exercises.edit", compact("exercise"));
     }
 
     /**
