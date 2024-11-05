@@ -38,7 +38,7 @@
 
                             <a href="{{ route("admin.exercises.edit", $exercise->id) }}" class="btn btn-success">Modifica</a>
 
-                            <form action="{{ route("admin.exercises.delete", $exercise->id) }}" method="POST" class="d-inline env-destroyer" custom-data-name="{{ $exercise->exercise_name }}">
+                            <form action="{{ route("admin.exercises.delete", $exercise->id) }}" method="POST" class="d-inline exercises-destroyer" custom-data-name="{{ $exercise->exercise_name }}">
                                 @method("DELETE")
                                 @csrf
                                 <button href="/delete" type="submit" class="btn btn-danger">Rimuovi</button>
@@ -54,5 +54,5 @@
 @endsection
 
 @section("additional-scripts")
-    @vite("resources/js/movies/delete-confirmation.js")
+    @vite("resources/js/exercises/delete-confirmation.js")
 @endsection

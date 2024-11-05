@@ -27,7 +27,7 @@ Route::middleware("auth")->prefix("/admin")->name("admin.")->group(function() {
     Route::post('/exercises', [AdminExerciseController::class, 'store'])->name('exercises.store');
     Route::get('/exercises/create', [AdminExerciseController::class, 'create'])->name('exercises.create');
     Route::get('/exercises/{id}', [AdminExerciseController::class, 'show'])->name('exercises.show');
-    Route::put('/exercises/{id}', [AdminExerciseController::class, "update"])->name("exercise.update");
+    Route::put('/exercises/{id}', [AdminExerciseController::class, "update"])->name("exercises.update");
     Route::delete('/exercises/{id}', [AdminExerciseController::class, "destroy"])->name("exercises.delete");
     Route::get('/exercises/{id}/edit', [AdminExerciseController::class, "edit"])->name("exercises.edit");
 });
