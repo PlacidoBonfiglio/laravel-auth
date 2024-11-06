@@ -13,7 +13,7 @@ class ExerciseController extends Controller
      */
     public function index()
     {
-        $exercises = Exercise::paginate(12);
+        $exercises = Exercise::paginate(15);
         return view("admin.exercises.index", compact("exercises"));
     }
 

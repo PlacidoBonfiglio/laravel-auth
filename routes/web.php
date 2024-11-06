@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ExerciseController as AdminExerciseController;
+use App\Http\Controllers\Guest\ExerciseController as GuestExerciseController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,9 +25,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // ! GUEST
 Route::prefix("/guest")->name("guest.")->group(function() {
-    Route::get('/exercises', [AdminExerciseController::class, 'index'])->name('exercises.index');
-    Route::post('/exercises', [AdminExerciseController::class, 'store'])->name('exercises.store');
-    Route::get('/exercises/{id}', [AdminExerciseController::class, 'show'])->name('exercises.show');
+    Route::get('/exercises', [GuestExerciseController::class, 'index'])->name('exercises.index');
+    Route::post('/exercises', [GuestExerciseController::class, 'store'])->name('exercises.store');
+    Route::get('/exercises/{id}', [GuestExerciseController::class, 'show'])->name('exercises.show');
 });
 
 // ! ADMIN
