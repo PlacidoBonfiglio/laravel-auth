@@ -30,7 +30,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <li class="me-3">
+                            <a href="{{ route("admin.exercises.index") }}">Lista degli esercizi</a>
+                        </li>
+                        <li>
+                            <a href="{{ route("guest.exercises.index") }}">Modifica la lista esercizi</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
