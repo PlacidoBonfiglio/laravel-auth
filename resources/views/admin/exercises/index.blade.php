@@ -50,6 +50,10 @@
               </tbody>
         </table>
 
+        <div>
+            {{ $exercises->links() }}
+        </div>
+
     </section>
 @endsection
 
